@@ -1,0 +1,80 @@
+
+
+package ecom;
+
+import java.sql.*;
+import java.util.*;
+
+
+public class DBConnection extends java.lang.Object {
+		
+	static {
+		/************************************************************
+	 	*  Step 1: Load the MySQL JDBC driver class *
+	 	************************************************************/
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+		} catch (Exception e) {
+			System.out.println("In db.DBConnection*****start****");			
+			System.out.println("Failed to load MySQL JDBC driver!");
+			e.printStackTrace();			
+			System.out.println("In db.DBConnection*****end****");			
+		}	
+	}
+	
+	
+	//store a connection such that it can be reused with a session
+	protected Connection conn;
+		
+	//Get the default connection 
+	public Connection getConnection() throws SQLException {
+		
+		if (conn != null && !conn.isClosed()) {
+			return conn;
+		}
+				
+		String db_name = "ecdb040";
+		String user_name = "ecom040";
+		String pwd = "BKTfWeii";
+		
+		conn = getConnection(db_name, user_name, pwd);
+		
+		return conn;
+	}
+
+	//close the saved connection to release resource and lock in DBMS
+	public void close() {
+		if (conn != null) {
+			try {
+				conn.close();
+			} catch (Exception e) {
+			}
+		}
+		conn = null;
+	}
+	
+	//the created connection is not saved here, you should
+	//close the connection when it is no longer needed
+	public Connection getConnection(String db_name, String user_name, 
+			String pwd) throws SQLException {
+				
+		/******************************************************************
+	 	*  Step 2: Construct the URL to be used to connect to 
+	 	*          the MySQL database server.
+     	*                                                                *
+     	*  The format of JDBC URL is as follows:  
+     	*         
+     	*  jdbc:mysql://[hostname][:port]/[dbname][?param1=value1][&param2=value2]  
+     	*
+	 	******************************************************************/		 
+		String mysqlURL = "jdbc:mysql://honest.cs.hku.hk:59040/" 	
+				+ db_name 
+				+"?user=" + user_name 
+				+"&password=" + pwd;
+		
+		/************************************************************
+	 	*  Step 3: Get a connection using the URL				 *
+	 	************************************************************/
+		return DriverManager.getConnection(mysqlURL);			
+	}	
+}

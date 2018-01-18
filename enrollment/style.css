@@ -1,0 +1,57 @@
+a
+{
+	color: #000000;
+	text-decoration: none;
+}
+
+a:hover
+{
+	color: #000000;
+	text-decoration: underline;
+}
+
+.menu
+{
+	color: #000000;
+	font-family: verdana;
+	font-size: 10pt;
+}
+
+.header
+{
+	color: #000000;
+	font-family: verdana;
+	font-size: 16pt;
+	font-weight: bold;
+}
+
+.news-header
+{
+	color: #000000
+	font-family: verdana;
+	font-size: 12pt;
+	font-weight: bold;
+}
+
+.table-header
+{
+	color: #000000;
+	font-family: verdana;
+	font-size: 10pt;
+	font-weight: bold;
+}
+
+.table-content
+{
+	font-family: verdana;
+	font-size: 10pt;
+	font-weight: normal;
+	text-align: justify;
+}
+
+td
+{
+	font-family: verdana;
+	font-size: 10pt;
+	font-weight: normal;
+}

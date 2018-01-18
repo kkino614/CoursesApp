@@ -1,0 +1,33 @@
+
+
+a:hover
+{
+	color: #000000;
+	text-decoration: underline;
+}
+
+.menu
+{
+	color: #000000;
+	font-family: verdana;
+	font-size: 10pt;
+	text-decoration: none;
+}
+
+
+.table-header
+{
+	color: #000000;
+	font-family: verdana;
+	font-size: 10pt;
+	font-weight: bold;
+}
+
+.table-content
+{
+	font-family: verdana;
+	font-size: 10pt;
+	font-weight: normal;
+	text-align: justify;
+}
+
